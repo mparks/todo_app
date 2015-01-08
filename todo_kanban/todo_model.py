@@ -12,8 +12,3 @@ class TodoTask(models.Model):
          ('done', 'Ready for next stage')],
         'Kanban State', default='normal')
     color = fields.Integer('Color Index')
-
-    company_id = fields.Many2one(
-        related='user_id.company_id',
-        string='Company',
-        store=True)
