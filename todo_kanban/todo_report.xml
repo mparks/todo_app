@@ -2,6 +2,7 @@
 <openerp>
     <data>
 
+        <!--
         <report
             id="report_todo_task_action"
             string="To-do Tasks"
@@ -9,13 +10,22 @@
             report_type="qweb-html"
             name="todo_kanban.report_todo_task_template"
         />
+        -->
 
-        <template id="report_todo_task_template_0">
+        <record id="report_todo_task_action" model="ir.actions.report.xml">
+            <field name="name">To-do Tasks</field>
+            <field name="model">todo.task</field>
+            <field name="report_type">qweb-html</field>
+            <field name="template_name">todo_kanban.report_todo_task_template</field>
+            <field name="paper_format_id" ref="report.paperformat_euro" />
+        </record>
+
+        <!--
+        <template id="report_todo_task_template">
             <t t-call="report.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="report.external_layout">
                     <div class="page">
-                        <!-- Report page content -->
                         <h2 t-field="o.name" />
                         <p t-field="o.user_id.name" />
                         <ul>
@@ -33,6 +43,7 @@
                 </t>
             </t>
         </template>
+        -->
 
         <template id="report_todo_task_template">
           <t t-call="report.html_container">
